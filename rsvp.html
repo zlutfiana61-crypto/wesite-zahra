@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="card">
+    <h2>💌 RSVP</h2>
+
+    <input type="text" id="nama" placeholder="Nama Kamu">
+    <textarea id="pesan" placeholder="Ucapan untuk Alika"></textarea>
+
+    <button class="btn" onclick="kirimRSVP()">Kirim</button>
+
+    <a href="index.html" class="btn">⬅ Kembali</a>
+</div>
+
+<script>
+function kirimRSVP() {
+    let nama = document.getElementById("nama").value.trim();
+    let pesan = document.getElementById("pesan").value.trim();
+
+    if (nama === "" || pesan === "") {
+        alert("Harap isi nama dan pesan dulu ya 💖");
+        return;
+    }
+
+    // Masukkan nomor WhatsApp kamu DI SINI (format 628...)
+    let nomor = "6281234567890";  // GANTI DENGAN NOMOR KAMU
+
+    // Pesan otomatis menuju WA
+    let text = 
+        "Hai, ada RSVP baru!%0A%0A" +
+        "👤 Nama: " + nama + "%0A" +
+        "💌 Pesan: " + pesan + "%0A%0A" +
+        "Dikirim dari Undangan Barbie 🎀";
+
+    // Redirect ke WhatsApp
+    let url = "https://wa.me/" + nomor + "?text=" + text;
+    window.location.href = url;
+}
+</script>
+
+</body>
+</html>
